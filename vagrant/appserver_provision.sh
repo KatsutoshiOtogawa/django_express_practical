@@ -3,7 +3,7 @@ source /home/vagrant/appserver.env
 yum update -y
 
 # djangoのためpythonインストール
-yum install python3-pip
+yum install -y python3-pip
 pip3 install pipenv
 
 # expressのためnodejsインストール
@@ -18,7 +18,7 @@ yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_6
 yum install -y postgresql12
 
 # nginxサーバーインストール
-yum install epel-release
+yum install -y epel-release
 yum install -y nginx
 yum-config-manager --disable epel
 # nginx.confのbackup作成。
@@ -26,6 +26,7 @@ cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.org
 cp /home/vagrant/nginx.conf /etc/nginx/nginx.conf
 rm /home/vagrant/nginx.conf
 systemctl enable nginx
+systemctl start nginx
 
 # SELinux,firewalldの初期状態の確認
 echo SELinux status is ...
