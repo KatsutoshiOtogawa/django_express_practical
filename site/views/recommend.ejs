@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <header>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/recommend.html">Recommend</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/recommend.html">Recommend</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</header>
+<main>
+  <article>
+    <section >
+      <h1 class="header center">おすすめ店舗一覧</h1>
+      <!-- 広告元が少ない場合は表示しない。-->
+      <div class="row">
+        <div class="input-field col s12 m4">
+          <select>
+            <!-- business_typeの数だけ必要 -->
+            <option value="" disabled selected>選択してください。</option>
+            <option value="1">飲食店</option>
+            <option value="2">不動産</option>
+            <option value="3">遊び場</option>
+          </select>
+          <label>業種タイプ</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <select>
+            <!-- business_typeの数だけ必要 -->
+            <option value="" disabled selected>選択してください。</option>
+            <option value="1">オプション1</option>
+            <option value="2">オプション2</option>
+            <option value="3">オプション3</option>
+          </select>
+          <label>予備1</label>
+        </div>
+        <div class="input-field col s12 m4">
+          <select>
+            <!-- business_typeの数だけ必要 -->
+            <option value="" disabled selected>選択してください。</option>
+            <option value="1">オプション1</option>
+            <option value="2">オプション2</option>
+            <option value="3">オプション3</option>
+          </select>
+          <label>予備2</label>
+        </div>
+      </div>
+    </section>
+  </article>
+  <hr />
+  <div>
+    <!-- businesstypeが飲食店になっているものだけここで表示-->
+    <div id="index-restaurant">
+      <div class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <h1 class="header center teal-text text-lighten-2">飲食店</h1>
+          </div>
+        </div>
+        <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+      </div>
+        <details class="container">
+          <summary>飲食店を表示する</summary>
+          <!-- article の単位でループ -->
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">bar zari</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    店長兼オーナーが一人で切り盛りしているお店です。<br />
+                    聞き上手な方で、店長と話すためにお店を訪れる方もいます。<br />
+                    カラオケがあり、忙しくなければ店長もいっしょに歌ってくれます。<br />
+                    店内は清潔感があり、女性にもおすすめなバーです。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>      
+                <div class="col s12 m6 google_map">
+                  <a href="https://g.page/bar-zari?share">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.460030889497!2d135.49732981523144!3d34.66833728044276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7011fd0d5ef%3A0xf38eaa550de0c28a!2sBar%20Zari!5e0!3m2!1sen!2sjp!4v1600870543874!5m2!1sen!2sjp" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </section>
+          </article>
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">bar ナマズ</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    ビルの3階にある隠れ家的なお店です。<br />
+                    ビルは十字路の角に位置するため、景色はよくゆったりとした時間を楽しむことができます。<br />
+                    フローズンカクテルがおすすめです。凍らせた果物をミキサーにかけて砕いた物をカクテルにしたもので、フルーティで口当たりがよくこれを飲むためにこのバーを訪れるお客さんも多いです。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>
+                <div class="col s12 m6 google_map">
+                  <a href="https://goo.gl/maps/iTeuvcCCi5kn7j8P8">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6562.769333348552!2d135.49411302603806!3d34.670239871769105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7dff24f4f1b%3A0x8a780117f93085df!2zQkFS44OK44Oe44K6!5e0!3m2!1sen!2sjp!4v1600871277564!5m2!1sen!2sjp" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>             
+            </section>
+          </article>
+        </details>
+    </div>
+    <!-- businesstypeが不動産になっているものだけここで表示-->
+    <div id="index-realstate">
+      <div class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <h1 class="header center teal-text text-lighten-2">不動産</h1>
+          </div>
+        </div>
+        <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+      </div>
+        <details class="container">
+          <summary>不動産を表示する</summary>
+          <!-- article の単位でループ -->
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">株式会社クロスエステート</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    心斎橋にある不動産です。<br />
+                    経営者や社員様は非常に物腰が柔らかい方で、クライアントの立場に立ち親身になって良い物件を提案していただけます。<br />
+                    大阪市内の借家を探している方にはおすすめの不動産屋です。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>      
+                <div class="col s12 m6 google_map">
+                  <a href="https://goo.gl/maps/EDgZ6gAhzoLXdGiy8">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.680426801518!2d135.49956!3d34.675656!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzMyLjQiTiAxMzXCsDI5JzU4LjQiRQ!5e0!3m2!1sja!2sus!4v1600872893563!5m2!1sja!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </section>
+          </article>
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">株式会社クロスエステート</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    心斎橋にある不動産屋です。<br />
+                    経営者や社員様は非常に物腰が柔らかい方で、クライアントの立場に立ち親身になって良い物件を提案していただけます。<br />
+                    大阪市内の借家を探している方にはおすすめの不動産屋です。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>      
+                <div class="col s12 m6 google_map">
+                  <a href="https://goo.gl/maps/EDgZ6gAhzoLXdGiy8">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.680426801518!2d135.49956!3d34.675656!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzMyLjQiTiAxMzXCsDI5JzU4LjQiRQ!5e0!3m2!1sja!2sus!4v1600872893563!5m2!1sja!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </section>
+          </article>
+        </details>
+    </div>
+    <div id="index-playground">
+      <div class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <h1 class="header center teal-text text-lighten-2">遊び場</h1>
+          </div>
+        </div>
+        <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+      </div>
+        <details class="container">
+          <summary>遊び場を表示する</summary>
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">株式会社クロスエステート</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    心斎橋にある不動産屋です。<br />
+                    経営者や社員様は非常に物腰が柔らかい方で、クライアントの立場に立ち親身になって良い物件を提案していただけます。<br />
+                    大阪市内の借家を探している方にはおすすめの不動産屋です。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>      
+                <div class="col s12 m6 google_map">
+                  <a href="https://goo.gl/maps/EDgZ6gAhzoLXdGiy8">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.680426801518!2d135.49956!3d34.675656!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzMyLjQiTiAxMzXCsDI5JzU4LjQiRQ!5e0!3m2!1sja!2sus!4v1600872893563!5m2!1sja!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </section>
+          </article>
+          <article>
+            <section>
+              <!-- 店舗名 -->
+              <h3 class="header store_name">株式会社クロスエステート</h3>
+              <div class="row">
+                <div class="col s12 m6">
+                  <!-- どういう店舗か説明-->
+                  <p class="business_explain">
+                    心斎橋にある不動産屋です。<br />
+                    経営者や社員様は非常に物腰が柔らかい方で、クライアントの立場に立ち親身になって良い物件を提案していただけます。<br />
+                    大阪市内の借家を探している方にはおすすめの不動産屋です。<br />
+                  </p>
+                  <!-- siteがnullならaタグは表示しない。 -->
+                  <p class="business_site"><a href="https://www.kurosu-e.jp/">サイトに移動する</a></p>
+                </div>      
+                <div class="col s12 m6 google_map">
+                  <a href="https://goo.gl/maps/EDgZ6gAhzoLXdGiy8">google mapで開く</a><br />
+                  <!-- Google map small embed-->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13124.680426801518!2d135.49956!3d34.675656!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzMyLjQiTiAxMzXCsDI5JzU4LjQiRQ!5e0!3m2!1sja!2sus!4v1600872893563!5m2!1sja!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </section>
+          </article>
+        </details>
+    </div>
+  </div>
+</div>
+</main>
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
