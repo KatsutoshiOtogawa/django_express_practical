@@ -6,6 +6,12 @@ apt update && apt upgrade -y
 apt install -y python3-pip
 pip3 install pipenv
 
+# ファイルシステムの検索を簡単にするためmlocateをインストール
+apt install -y mlocate
+
+# ポート、ネットワークの接続確認のため、インストール
+apt install -y nmap
+
 # expressのためnodejsインストール
 # nodejs12はltsのバージョン
 apt install -y snapd
@@ -15,6 +21,7 @@ yarn global add nexe
 
 # postgresql クライアントをインストール
 # postgresql サーバーとバージョンがあっている必要がある。
+apt install -y postgresql-client-10
 apt install -y postgresql-client-common
 
 # nginxサーバーインストール
@@ -66,9 +73,38 @@ ufw allow 3000
 ufw reload
 
 # リバースプロキシの設定方法https://gobuffalo.io/en/docs/deploy/proxy
-# nginxのリバースプロキシを使う場合に必要なselinuxの設定
-# setsebool -P httpd_can_network_connect on
-# setsebool -P httpd_can_network_relay on
+# Apparmorの場合は、nginxのリバースプロキシを使うための設定は不要。
+
+# private networkの設定
+echo "# private network settings." >> /etc/hosts
+# appサーバーの自分のprivateアドレスを記述
+echo -e "192.168.33.10\tapp\tapp" >> /etc/hosts
+# dbサーバーのprivateアドレスを記述
+echo -e "192.168.33.20\tdb\tdb" >> /etc/hosts
+
+# libpg-devはプログラミング言語からpostgresqlに接続するためのライブラリ
+apt install -y libpq-dev
+su - vagrant -c "pip3 install psycopg2"
+
+# postgresユーザー疎通確認
+DB_HOSTNAME=db
+su - vagrant -s /usr/bin/python3 << END
+import psycopg2
+import sys
+
+try:
+    with psycopg2.connect("host=${DB_HOSTNAME} dbname=postgres user=postgres password=postgres") as conn:
+        with conn.cursor() as cur:
+            cur.execute("select version();")
+
+            # プログラミング言語経由だとcommit必要
+            conn.commit()
+            for row in cur.fetchall():
+                print(row)
+except Exception as err:
+    print(err, file=sys.stderr)
+END
+
 
 # アプリケーションをサービスとして登録
 # 本番字はnexeでまとめた物を実行
@@ -109,3 +145,6 @@ Group=$APP_GROUP
 [Install]
 WantedBy = multi-user.target
 END
+
+# locateのデータベース更新。
+updatedb

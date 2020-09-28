@@ -21,9 +21,6 @@ app.engine('ejs', function (filePath, options, callback) { // define the templat
 app.set('views', './views') // specify the views directory
 app.set('view engine', 'ejs') // register the template engine
 
-app.use((req, res) => {
-  res.sendStatus(404);
-});
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'Hey', message: 'Hello there!' })
@@ -57,6 +54,10 @@ app.get('/recommend', function (req, res) {
 app.get('/about', function (req, res) {
   res.render('about', { title: 'Hey', message: 'Hello there!' })
 })
+
+app.use((req, res) => {
+  res.sendStatus(404);
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
