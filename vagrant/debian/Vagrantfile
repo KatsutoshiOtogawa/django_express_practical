@@ -71,8 +71,8 @@ Vagrant.configure("2") do |config|
     end
     # nginx.confのファイルを反映させる。
     server.vm.provision :file do |file|
-      file.source = "./nginx.conf"
-      file.destination = "/home/vagrant/nginx.conf"
+      file.source = "./default"
+      file.destination = "/home/vagrant/default"
     end
 
     # Enable provisioning with a shell script. Additional provisioners such as

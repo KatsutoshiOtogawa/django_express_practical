@@ -19,10 +19,12 @@ apt install -y postgresql-client-common
 
 # nginxサーバーインストール
 apt install -y nginx
-# nginx.confのbackup作成。
-cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.org
-cp /home/vagrant/nginx.conf /etc/nginx/nginx.conf
-rm /home/vagrant/nginx.conf
+# sites-available/defaultのbackup作成。
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.org
+cp /home/vagrant/default /etc/nginx/sites-available/default
+rm /home/vagrant/default
+
+# nginx有効化
 systemctl enable nginx
 systemctl start nginx
 
@@ -49,6 +51,9 @@ prc.sendline("y")
 prc.expect( pexpect.EOF )
 END
 ufw status verbose
+# 後処理。平時は使わないのでアンインストール。
+pip3 uninstall pexpect
+apt remove --purge -y expect
 
 # ファイアウォールの設定
 # hostosからguestosの通信で指定のポートを開けておく。
